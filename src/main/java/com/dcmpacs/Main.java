@@ -35,12 +35,13 @@ public class Main {
          * adicionar arquivos dicom para lista 
          *
         for (int i = 1, n = argList.size(); i < n; ++i)*/
-            dcmsnd.addFile(new File("C:\\Users\\victor\\Downloads\\DownloadEstudo-dicom_idBsD-c8517d0b-49ec-47ee-920c-4f11b0bce916"));
+            dcmsnd.addFile(new File("C:\\Users\\victormacedo\\Desktop\\10273"));
 
         
         if (dcmsnd.getNumberOfFilesToSend() == 0) {
             System.exit(2);
         }
+
         dcmsnd.configureTransferCapability();
         dcmsnd.setTlsNeedClientAuth(true);
         try {
@@ -59,7 +60,6 @@ public class Main {
                 System.exit(2);
             }
             dcmsnd.send();
-//            prompt(dcmsnd, (t2 - t1) / 1000F);
             if (dcmsnd.isStorageCommitment()) {
                 dcmsnd.commit();
                 dcmsnd.close();
